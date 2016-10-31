@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>title</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+  <script type="text/javascript" src="js/jquery.carouFredSel-6.1.0-packed.js"></script>
+  <script type="text/javascript" src="js/js.js"></script>
+  <script type="text/javascript" src="js/jquery.selectBox.js"></script>
+  <script type="text/javascript">
+ $(document).ready(function() {
+     $(".select-status").selectBox();
+ });
+ </script>
+<script type="text/javascript">
+
+function mycarousel_initCallback(carousel)
+{
+    // Disable autoscrolling if the user clicks the prev or next button.
+    carousel.buttonNext.bind('click', function() {
+        carousel.startAuto(0);
+    });
+
+    carousel.buttonPrev.bind('click', function() {
+        carousel.startAuto(0);
+    });
+
+    // Pause autoscrolling if the user moves with the cursor over the clip.
+    carousel.clip.hover(function() {
+        carousel.stopAuto();
+    }, function() {
+        carousel.startAuto();
+    });
+};
+
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel({
+        auto: 2,
+        wrap: 'last',
+        initCallback: mycarousel_initCallback
+    });
+});
+
+</script>
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+}
+</script>
+
+</head>
+<body>
+
+    <!-- header -->
+	<div class="header">
+        <div class="header-wrap">
+        <a class="registration" href="#registration">Регистрация</a>
+            <div class="aut">
+                <form>
+
+                    <span>Вход:</span>
+
+                    <input type="text" value="Логин" onfocus="clearText(this)" onblur="clearText(this)" />
+                    <input type="text" value="Пароль" onfocus="clearText(this)" onblur="clearText(this)" />
+
+                    <input type="submit" value="Вход" />
+
+                    <a class="forgot" href="#forgot">Забыли пароль?</a>
+                </form>
+            </div>
+
+            <div class="language">
+                <a href="#"><img src="images/eng.png" width="23" height="23" alt="" /></a>
+                <a href="#"><img src="images/rus.png" width="24" height="22" alt="" /></a>
+            </div>
+
+            <div class="search">
+                <form>
+                    <input type="text" value="поиск" onfocus="clearText(this)" onblur="clearText(this)" />
+                    <input type="submit" class="button" />
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="#x" class="overlay" id="forgot"></a>
+        <div class="popup">
+            <div class="title">
+                <h2>Ошибка авторизации</h2>
+            </div>
+
+            <div class="attention-box">
+                <div class="att-block">
+                    <h3>Забыли пароль?</h3>
+
+                    <table>
+                        <tr>
+                            <td><p>E-mail:</p></td>
+                            <td><input type="text" /></td>
+                        </tr>
+
+                        <tr>
+                            <td><p>Код:</p></td>
+                            <td><input type="text" /></td>
+                            <td><img src="images/capcha.jpg" width="127" height="41" alt="" /></td>
+                            <td><a class="reload" href="#">Обновить картинку</a></td>
+                        </tr>
+                    </table>
+                    <p class="mail-to">Мы отправим ваш пароль на указанный адрес</p>
+
+                    <a class="send-ok" href="#">ОК</a>
+                </div>
+
+                <div class="send-done">
+                    <p>На электронный адрес xxx@xxx.xx было отправлено письмо со ссылкой для смены пароля.</p>
+                </div>
+                <a class="close" href="#"><img src="images/close.png" width="23" height="24" alt="" /></a>
+            </div>
+        </div>
+
+        <a href="#x" class="overlay" id="registration"></a>
+        <div class="popup-reg">
+            <div class="title-reg">
+                <h2>Регистрация</h2>
+            </div>
+
+            <div class="attention-box">
+                  <div class="att-block">
+                      <table>
+                        <tr>
+                            <td><p>Логин: <span>*</span></p></td>
+                            <td><input type="text" /></td>
+                            <td><span class="exist">Такое имя пользователя уже существует.</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><p>E-mail: <span>*</span></p></td>
+                            <td><input type="text" /></td>
+                            <td><span class="exist">Неправильный формат E-mail адреса.</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><p>Имя: <span>*</span></p></td>
+                            <td><input type="text" /></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><p>Фамилия: <span>*</span></p></td>
+                            <td><input type="text" /></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><p>Статус: <span>*</span></p></td>
+                            <td>
+                                <select class="select-status">
+                                    <option>Врач</option>
+                                    <option>Интерн</option>
+                                    <option>Пациент</option>
+                                </select>
+                            </td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><p>Пол: <span>*</span></p></td>
+                            <td>
+                                <label><input type=radio name="pol" /> муж.</label><br />
+                                <label><input type=radio name="pol" /> жен.</label>
+                            </td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><p>Пароль: <span>*</span></p></td>
+                            <td><input type="text" /></td>
+                            <td><span class="exist">Введите пароль из 6 символов или более.</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><p>Повторите пароль: <span>*</span></p></td>
+                            <td><input type="text" /></td>
+                            <td></td>
+                        </tr>
+                      </table>
+                  </div>
+                  <div class="att-block border-top">
+
+                    <table>
+
+                        <tr>
+                            <td><p>Код: <span>*</span></p></td>
+                            <td><input type="text" /></td>
+                            <td><img src="images/capcha.jpg" width="127" height="41" alt="" /></td>
+                            <td><a class="reload" href="#">Обновить картинку</a></td>
+                        </tr>
+                    </table>
+
+                    <p class="obliging"><span>*</span> Поля, обязательные для заполнения</p>
+
+                    <a class="reg-buttons" href="#">Зарегистрироваться</a>
+                    <p class="guarante">Мы гарантируем конфиденци-<br />альность Ваших данных</p>
+                </div>
+
+                <a class="close" href="#"><img src="images/close.png" width="23" height="24" alt="" /></a>
+            </div>
+        </div>
+
+    <div class="info-logo">
+        <div class="cont-info">
+            <div class="info-wrap">
+            <a class="arrow" href="#"><img src="images/arrow.png" width="64" height="63" alt="" /></a>
+
+            <div class="logo">
+                <a href="#"><img src="images/logo.png" width="301" height="94" alt="" /></a>
+                <h1>Медицинское общество по лечению<br /> нейроэндокринных опухолей</h1>
+            </div>
+
+            <div class="info">
+                <p>Добрый день, Сергей Иванович</p>
+                <a href="#">Личный кабинет</a>
+                <a href="#">Сообщений 2</a>
+                <a href="#">Выход</a>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <div class="menu-wrap">
+            <ul>
+                <li>
+                <a href="#"><p>О нас</p></a>
+
+                <ul class="submenu">
+                    <li><a href="#">Подпункт меню</a></li>
+                    <li><a href="#">Подпункт меню</a></li>
+                    <li><a href="#">Подпункт меню</a></li>
+                    <li><a href="#">Подпункт меню</a></li>
+                </ul>
+                </li>
+                <li><a href="#"><p>Новости</p></a></li>
+                <li><a href="#"><p>Мероприятия</p></a></li>
+                <li><a class="active" href="#"><p>Врачебная практика</p></a></li>
+                <li><a href="#"><p>Обсуждения</p></a></li>
+                <li><a href="#"><p>Библиотека</p></a></li>
+                <li><a href="#"><p>Для пациентов</p></a></li>
+                <li><a href="#"><p>Партнеры</p></a></li>
+                <li><a href="#"><p>Контакты</p></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="featured">
+      <div class="pagination"></div>
+
+      <div id="slides">
+        <div class="slide">
+          <a href="#"><img class="slide_img" src="images/sl1.png" alt=""></a>
+          <div class="slide_ttl">МОЛНЭО</div>
+          <div class="slide_txt">Мы боремся с раком на протяжении десятилетий</div>
+        </div>
+
+        <div class="slide">
+          <a href="#"><img class="slide_img" src="images/sl1.png" alt=""></a>
+          <div class="slide_ttl">Исследования</div>
+          <div class="slide_txt">Lorem ipsum dolor sit amet</div>
+        </div>
+
+        <div class="slide">
+          <a href="#"><img class="slide_img" src="images/sl1.png" alt=""></a>
+          <div class="slide_ttl">Мероприятия</div>
+          <div class="slide_txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita</div>
+        </div>
+
+        <div class="slide">
+          <a href="#"><img class="slide_img" src="images/slide-img-2.jpg" alt=""></a>
+          <div class="slide_ttl">Члены общества</div>
+          <div class="slide_txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis expedita</div>
+        </div>
+      </div><!-- .slides -->
+    </div>
+
+  <div id="wrap">
+
+	<!-- content -->
+	<div class="content">
+        <h2 class="company">О компании</h2>
+
+        <div class="content-text">
+            <p>Фармацевтическая компания &#171;Фарм-Синтез&#187; добилась лидирующего положения в области синтеза инновационных
+            субстанций и современных готовых лекарственных средств. Освоены передовые технологии по производству депо
+            нированных форм, препаратор с контролируемым высвобождением, таргетной доставкой радиофармацевтических
+            средств, промышленному выделению стереоизомеров и многие другие. Мы гордимся разработанными нами высо
+            коэффективными препаратами для онкологии, неврологии, трансплантологии, абдоминальной хирургии, фтизиа
+            трии, акушерства и геникологии.</p>
+
+            <p>Высокопрофессиональные учёные, химики, технологи, врачи, менеджеры - основа динамического развития компа
+            нии. Ежегодно удваивается обём производства, растёт число выпускаемых препаратов. Мы сотрудничаем с веду
+            щими научно-исследовательскими и лечебно-диагностическими центрами России, что позволяет создавать совре
+            менные эффективные лекарственные средства соответствующие мировым стандартам и востребованные практиче-</p>
+        </div>
+
+        <div class="poll-box">
+            <h2 class="poll">Опрос</h2>
+
+            <form>
+                <span>Соблюдаете ли вы<br />
+                предписания врача<br />
+                о приёме лекарст-<br />
+                венных препаратов?</span>
+
+                <div class="poll-block">
+                    <label>
+                        <input type="radio" name="group" />
+                        <p>Да, всегда</p>
+                    </label>
+                </div>
+
+                <div class="poll-block">
+                    <label>
+                        <input type="radio" name="group" />
+                        <p>Да, но иногда при-<br />
+                        нимаю чуть раньше,<br />
+                        иногда чуть позже.</p>
+                    </label>
+                </div>
+
+                <div class="poll-block">
+                    <label>
+                        <input type="radio" name="group" />
+                        <p>Решения о приёме<br />
+                        принимаю самостоя-<br />
+                        тельно</p>
+                    </label>
+                </div>
+
+                <input type="submit" value="Голосовать" />
+            </form>
+
+            <a class="arhive" href="#">Архив опросов</a>
+        </div>
+
+        <div class="news-box">
+            <h2 class="news"><a href="#">Новости</a></h2>
+
+            <div class="news-block">
+                <span>12.05.2013</span>
+                <a href="#">Новая публикация в журнале "Современная онкология №1 / 2010". Современные направления лечения нейроэндокрин-<br />нных опухолей</a>
+                <p>Со времени описания Оберндорфером (S. Oberndorfer) в 1907 г. специфических опухолей тонкой кишки под названием «карциноид» и презентации лечения карциноидного синдрома в 1-м номере международного журнала клинической онкологии (Journal of Clinical Oncology) Мортелем в 1983 г. (C.Moertel, 1983) вопрос лечения нейроэндокринных опухолей (НЭО) вызвал новый оживленный интерес.</p>
+            </div>
+
+            <div class="news-block">
+                <span>12.05.2013</span>
+                <a href="#">Новая публикация в журнале "Современная онкология №1 / 2010". Современные направления лечения нейроэндокрин-<br />нных опухолей</a>
+                <p>Со времени описания Оберндорфером (S. Oberndorfer) в 1907 г. специфических опухолей тонкой кишки под названием «карциноид» и презентации лечения карциноидного синдрома в 1-м номере международного журнала клинической онкологии (Journal of Clinical Oncology) Мортелем в 1983 г. (C.Moertel, 1983) вопрос лечения нейроэндокринных опухолей (НЭО) вызвал новый оживленный интерес.</p>
+            </div>
+
+            <div class="news-block">
+                <span>12.05.2013</span>
+                <a href="#">Новая публикация в журнале "Современная онкология №1 / 2010". Современные направления лечения нейроэндокрин-<br />нных опухолей</a>
+                <p>Со времени описания Оберндорфером (S. Oberndorfer) в 1907 г. специфических опухолей тонкой кишки под названием «карциноид» и презентации лечения карциноидного синдрома в 1-м номере международного журнала клинической онкологии (Journal of Clinical Oncology) Мортелем в 1983 г. (C.Moertel, 1983) вопрос лечения нейроэндокринных опухолей (НЭО) вызвал новый оживленный интерес.</p>
+            </div>
+
+            <div class="news-block">
+                <span>12.05.2013</span>
+                <a href="#">Новая публикация в журнале "Современная онкология №1 / 2010". Современные направления лечения нейроэндокрин-<br />нных опухолей</a>
+                <p>Со времени описания Оберндорфером (S. Oberndorfer) в 1907 г. специфических опухолей тонкой кишки под названием «карциноид» и презентации лечения карциноидного синдрома в 1-м номере международного журнала клинической онкологии (Journal of Clinical Oncology) Мортелем в 1983 г. (C.Moertel, 1983) вопрос лечения нейроэндокринных опухолей (НЭО) вызвал новый оживленный интерес.</p>
+            </div>
+
+            <div class="news-block">
+                <span>12.05.2013</span>
+                <a href="#">Новая публикация в журнале "Современная онкология №1 / 2010". Современные направления лечения нейроэндокрин-<br />нных опухолей</a>
+                <p>Со времени описания Оберндорфером (S. Oberndorfer) в 1907 г. специфических опухолей тонкой кишки под названием «карциноид» и презентации лечения карциноидного синдрома в 1-м номере международного журнала клинической онкологии (Journal of Clinical Oncology) Мортелем в 1983 г. (C.Moertel, 1983) вопрос лечения нейроэндокринных опухолей (НЭО) вызвал новый оживленный интерес.</p>
+            </div>
+
+            <a class="all-news" href="#">Все новости &#8594;</a>
+        </div>
+    </div>
+
+    <div class="contaiter-aside">
+        <div class="aside">
+        <div class="aside-h2 nobg">
+            <h2 class="anons"><a href="#">Анонсы<br /> мероприятий</a></h2>
+        </div>
+
+        <div class="cont-anons">
+            <div class="anons-block">
+            <span>12.02.2013</span>
+            <a href="#">X Юбилейная Междуна-<br />родная ежегодная конференция"Стандарты диагностики и лечения рака молочной железы", Белые ночи Санкт-Петербурга.</a>
+            <p>Россия, Санкт-Петербург</p>
+        </div>
+
+        <div class="anons-block">
+            <span>12.02.2013</span>
+            <a href="#">25 апреля 2013г. Состо-<br />ится заседание проблем-<br />ной комиссии «Опухоли головы и шеи» научного совета по злокачествен-<br />ным новообразованиям РАМН МЗ РФ.</a>
+            <p>Россия, Москва</p>
+        </div>
+
+        <div class="anons-block">
+            <span>12.02.2013</span>
+            <a href="#">25 апреля 2013г. Состо-<br />ится заседание проблем-<br />ной комиссии «Опухоли головы и шеи» научного.</a>
+            <p>Россия, Москва</p>
+        </div>
+
+        <div class="anons-block">
+            <span>12.02.2013</span>
+            <a href="#">25 апреля 2013г. Состо-<br />ится заседание проблем-<br />ной комиссии «Опухоли головы и шеи» научного.</a>
+            <p>Россия, Москва</p>
+        </div>
+
+        <div class="anons-block">
+            <span>12.02.2013</span>
+            <a href="#">26 апреля 2013 г. в рамках научного цикла "Беседы по онкоуро-<br />логии в НИИ онкологии им.Н.Н. Петрова" прой-<br />дет конференция «Диа-<br />гностика и лечение не-<br />инвазивного рака мочевого пузыря»</a>
+            <p>Россия, Москва</p>
+        </div>
+
+        <div class="anons-block">
+            <span>12.02.2013</span>
+            <a href="#">26 апреля 2013 г. в рамках научного цикла "Беседы по онкоуро-<br />логии в НИИ онкологии им.Н.Н. Петрова" прой-<br />дет конференция «Диа-<br />гностика и лечение не-<br />инвазивного рака мочевого пузыря»</a>
+            <p>Россия, Москва</p>
+        </div>
+        </div>
+
+        <a class="all-anons" href="#"><p>Все мероприятия</p></a>
+    </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<div class="partner">
+        <h2>Наши партнеры</h2>
+    </div>
+
+<div class="slider-box">
+    <div class="slider-wrap">
+			<ul id="mycarousel" class="jcarousel-skin-tango">
+				<li>
+                    <div class="slider-block">
+                        <a href="#"><img src="images/img1.jpg" width="176" height="63" alt="" /></a>
+                        <p><a href="#">Российский онкологический портал профессионального общества онкологов-химиотерапевтов в составе проекта oncology.ru</a></p>
+                    </div>
+                </li>
+
+                				<li>
+                    <div class="slider-block">
+                        <a href="#"><img src="images/img2.jpg" width="176" height="63" alt="" /></a>
+                        <p><a href="#">Одна из ведущих отечественных фармацевтических компаний</a></p>
+                    </div>
+                </li>
+
+                				<li>
+                    <div class="slider-block">
+                        <a href="#"><img src="images/img3.jpg" width="176" height="63" alt="" /></a>
+                    </div>
+                </li>
+
+                				<li>
+                    <div class="slider-block">
+                        <a href="#"><img src="images/img1.jpg" width="176" height="63" alt="" /></a>
+                        <p><a href="#">Российский онкологический портал профессионального общества онкологов-химиотерапевтов в составе проекта oncology.ru</a></p>
+                    </div>
+                </li>
+
+                				<li>
+                    <div class="slider-block">
+                        <img src="images/img1.jpg" width="176" height="63" alt="" />
+                        <p>Российский онкологический портал профессионального общества онкологов-химиотерапевтов в составе проекта oncology.ru</p>
+                    </div>
+                </li>
+
+                                				<li>
+                    <div class="slider-block">
+                        <img src="images/img1.jpg" width="176" height="63" alt="" />
+                        <p>Российский онкологический портал профессионального общества онкологов-химиотерапевтов в составе проекта oncology.ru</p>
+                    </div>
+                </li>
+			</ul>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="footer-wrap">
+
+        <div class="section-menu">
+            <p class="undress">Разделы</p>
+
+        <ul class="sub-menu">
+            <li><a href="#">Обсуждения</a></li>
+            <li><a href="#">Библиотека</a></li>
+            <li><a href="#">Для пациентов</a></li>
+            <li><a href="#">Партнеры</a></li>
+        </ul>
+
+        <ul class="sub-menu">
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Новости</a></li>
+            <li><a href="#">Мероприятия</a></li>
+            <li><a href="#">Врачебная практика</a></li>
+        </ul>
+
+        <ul class="sub-menu">
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Карта сайта</a></li>
+            <li><a href="#">Условия пользования</a></li>
+        </ul>
+        </div>
+
+        <div class="sub-logo-box">
+            <a class="sub-logo" href="#"><img src="images/sub-logo.png" width="259" height="85" alt="" /></a>
+            <h1>Медицинское общество по лечению<br /> нейроэндокринных опухолей</h1>
+            <div class="clear"></div>
+            <p>г. Москва, ул. Южнобутовская, дом 101, офис 18<br />
+            тел. (495) <b>720-96-28</b><br />
+            e-mail: site@mail.ru</p>
+        </div>
+    </div>
+</div>
+
+<div class="copyright">
+    <div class="copyright-wrap">
+        <p>&#169; 2013, Медицинское общество по лечению нейроэндокринных опухолей</p>
+    </div>
+</div>
+
+</body>
+</html>

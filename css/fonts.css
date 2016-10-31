@@ -1,0 +1,33 @@
+
+@font-face {
+    font-family: 'pt_sansregular';
+    src: url('../fonts/pt_sans-webfont.eot');
+    src: url('../fonts/pt_sans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/pt_sans-webfont.woff') format('woff'),
+         url('../fonts/pt_sans-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'pf_agora_sans_proregular';
+    src: url('../fonts/pfagorasanspro-reg-webfont.eot');
+    src: url('../fonts/pfagorasanspro-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/pfagorasanspro-reg-webfont.woff') format('woff'),
+         url('../fonts/pfagorasanspro-reg-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'fregatregular';
+    src: url('../fonts/fregat-webfont.eot');
+    src: url('../fonts/fregat-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/fregat-webfont.woff') format('woff'),
+         url('../fonts/fregat-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
